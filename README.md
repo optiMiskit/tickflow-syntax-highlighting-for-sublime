@@ -1,5 +1,5 @@
 # Tickflow syntax highlighting for [Sublime Text](https://www.sublimetext.com)
-A collection of resources to add Tickflow syntax highlighting that is somewhat context aware (example: hex numbers that represent subroutines are colored differently than hex numbers used as values).  
+A collection of resources to add Tickflow syntax highlighting that is context aware (example: hex numbers that represent subroutines are colored differently than hex numbers used as values).  
 Color scheme is based on Notepad++ and the original color scheme provided with [Tickflow](https://github.com/rhmodding/Tickompiler).
 
 
@@ -8,13 +8,16 @@ Color scheme is based on Notepad++ and the original color scheme provided with [
 
 ## Installation
 (I'm looking into making a package, but for now...)  
-Put the files in the Sublime Text folder (which you can find via Preferences-> Broswe Packages) as shown below
+Put the files in the Sublime Text folder (which you can find via Preferences-> Browse Packages) as shown below
 
     ├── Packages
     │   ├── Tickflow.sublime-syntax
     │   └── User
     │       ├── Tickflow.sublime-settings
     │       └── Tickflow.sublime-color-scheme
+    
+## Purpose
+Makes navigation easier; provides tickflow syntax support for a program that is natively supported by MacOS.
 
 ## In the works
 1. Build automation
