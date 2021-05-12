@@ -1,4 +1,4 @@
-# Tickflow syntax highlighting for Sublime Text
+# Tickflow syntax highlighting for [Sublime Text](https://www.sublimetext.com)
 A collection of resources to add Tickflow syntax highlighting that is somewhat context aware (example: hex numbers that represent subroutines are colored differently than hex numbers used as values).  
 Color scheme is based on Notepad++ and the original color scheme provided with [Tickflow](https://github.com/rhmodding/Tickompiler).
 
