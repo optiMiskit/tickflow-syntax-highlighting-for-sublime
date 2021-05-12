@@ -14,7 +14,7 @@ Put the files in the Sublime Text folder (which you can find via Preferences-> B
     │   ├── Tickflow.sublime-syntax
     │   └── User
     │       ├── Tickflow.sublime-settings
-    │       └── Tickflow_Colors.sublime-color-scheme
+    │       └── Tickflow.sublime-color-scheme
 
 ## In the works
 1. Build automation
