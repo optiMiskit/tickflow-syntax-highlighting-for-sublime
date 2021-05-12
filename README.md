@@ -1,8 +1,10 @@
-# Tickflow syntax highlighting (for Sublime Text)
-A collection of resources to add Tickflow syntax highlighting.
-Color scheme is based on the original color scheme provided with [Tickflow](https://github.com/rhmodding/Tickompiler).
+# Tickflow syntax highlighting for Sublime Text
+A collection of resources to add Tickflow syntax highlighting that is somewhat context aware (example: hex numbers that represent subroutines are colored differently than hex numbers used as values).  
+Color scheme is based on Notepad++ and the original color scheme provided with [Tickflow](https://github.com/rhmodding/Tickompiler).
 
-<INSERT EXAMPLE IMAGE HERE>
+
+### Screenshots:
+![screenshots](https://github.com/optiMiskit/tickflow-syntax-highlighting-for-sublime/blob/main/Screenshots.gif)
 
 ## Installation
 (I'm looking into making a package, but for now...)  
@@ -18,5 +20,5 @@ Put the files in the Sublime Text folder (which you can find via Preferences-> B
 1. Build automation
 2. Snippets/simple auto-completion  
 
-[![Downloads](https://img.shields.io/github/downloads/optiMiskit/tickflow-syntax-highlighting-for-sublime/total.svg)](https://github.com/optiMiskit/tickflow-syntax-highlighting-for-sublime/releases)
+
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/optiMiskit/tickflow-syntax-highlighting-for-sublime/blob/main/LICENSE)
