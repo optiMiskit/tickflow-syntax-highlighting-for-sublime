@@ -17,7 +17,7 @@ Put the files in the Sublime Text folder (which you can find via Preferences-> B
     │       └── Tickflow.sublime-color-scheme
     
 ## Purpose
-Makes navigation easier; provides tickflow syntax support for a program that is natively supported by MacOS.
+Makes navigation easier; provides tickflow syntax support for a program that is natively supported by Windows, MacOS, and Linux.
 
 ## In the works
 1. Build automation
