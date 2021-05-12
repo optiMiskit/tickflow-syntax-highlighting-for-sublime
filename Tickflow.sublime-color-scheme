@@ -1,5 +1,5 @@
 {
-    // Version 1.0 - May 11, 2021
+    // Version 1.01 - May 12, 2021
     "name": "Tickflow theme [intended for tickflow only]",
     "author": "optiMiskit, based on Notepad++ color scheme for Tickflow.",
     "variables":
@@ -47,10 +47,16 @@
             "font_style": "unbold"
         },
         {
-            "name": "Labels",
+            "name": "Label",
             "scope":  "keyword.control.labels",
             "foreground": "var(pink)",
             "font_style": "unbold"
+        },
+        {
+            "name": "Label IDs",
+            "scope":  "keyword.control.labels.id",
+            "foreground": "var(pink)",
+            "font_style": "bold"
         },
         {
             "name": "Integers",
