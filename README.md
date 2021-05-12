@@ -21,7 +21,7 @@ Makes navigation easier; provides tickflow syntax support for a program that is 
 
 ## In the works
 1. Build automation
-2. Snippets/simple auto-completion  
+2. Snippet/template files
 
 
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/optiMiskit/tickflow-syntax-highlighting-for-sublime/blob/main/LICENSE)
