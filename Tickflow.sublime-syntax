@@ -3,7 +3,7 @@
 name: Tickflow
 file_extensions: [tickflow]
 scope: source.tickflow
-# Version 1.0 - May 11, 2021
+# Version 1.01 - May 12, 2021
 
 variables:
   hex_number: '\b0[xX][0-9a-fA-F]+\b'
@@ -48,9 +48,9 @@ contexts:
     - match: '\blabel\b'
       scope: keyword.control.labels.tickflow
     - match: '(?<=\blabel\b)[ \t]+{{number}}'
-      scope: keyword.control.labels.tickflow
+      scope: keyword.control.labels.id.tickflow
     - match: '(?<=\bgoto\b)[ \t]+{{number}}'
-      scope: keyword.control.labels.tickflow
+      scope: keyword.control.labels.id.tickflow
 
   numbers:
     - match: '{{int_number}}'
