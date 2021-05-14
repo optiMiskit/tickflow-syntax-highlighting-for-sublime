@@ -1,0 +1,12 @@
+{
+	/* To change the Tickompiler location:
+		1. Comment out the first "shell_cmd" line
+		2. Add back the second "shell_cmd" line
+		3. Replace "TICKOMPILER_PATH" with the path you keep Tickompiler (eg: C:/Users/me/Desktop/Tickompiler.jar, /Applications/Tools/Tickompiler.jar)
+	*/
+    "shell_cmd": "echo \"By default, this tool looks for Tickompiler in the same directory as the .tickflow file.\n(You can modify Tickflow.sublime-build to change this)\n----------\" && java -jar Tickompiler.jar compile \"$file\"",
+    //"shell_cmd": "java -jar TICKOMPILER_PATH compile \"$file\"",
+    "file_regex": "^(...*?):([0-9]*):?([0-9]*)",
+    "selector": "source.tickflow",
+    "quiet": true
+}
