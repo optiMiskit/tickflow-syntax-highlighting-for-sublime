@@ -7,21 +7,13 @@ Color scheme is based on Notepad++ and the original color scheme provided with [
 ![screenshots](https://github.com/optiMiskit/tickflow-syntax-highlighting-for-sublime/blob/main/Screenshots.gif)
 
 ## Installation
-(I'm looking into making a package, but for now...)  
-Put the files in the Sublime Text folder (which you can find via Preferences-> Browse Packages) as shown below
+1. Download the latest release: [![Downloads](https://img.shields.io/github/downloads/optiMiskit/tickflow-syntax-highlighting-for-sublime/total.svg)](https://github.com/optiMiskit/tickflow-syntax-highlighting-for-sublime/releases)  
+2. Place the "Tickflow_Syntax" folder in the Sublime Text folder (which you can find via Preferences-> Browse Packages).  
 
-    ├── Packages
-    │   ├── Tickflow.sublime-syntax
-    │   └── User
-    │       ├── Tickflow.sublime-settings
-    │       └── Tickflow.sublime-color-scheme
     
 ## Purpose
 Makes navigation easier; provides tickflow syntax support for a program that is natively supported by Windows, MacOS, and Linux.
 
-## In the works
+## Work-in-progress
 1. Build automation
 2. Snippet/template files
-
-
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/optiMiskit/tickflow-syntax-highlighting-for-sublime/blob/main/LICENSE)
