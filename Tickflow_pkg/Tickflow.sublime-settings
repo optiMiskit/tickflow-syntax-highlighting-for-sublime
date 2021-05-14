@@ -1,5 +1,5 @@
 // These settings override both User and Default settings for the Tickflow syntax
 {
-	    "color_scheme": "Tickflow/Tickflow.sublime-color-scheme",
+	    "color_scheme": "Tickflow.sublime-color-scheme",
 	    "tab_completion": false
 }
