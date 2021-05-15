@@ -4,7 +4,7 @@ Color scheme is based on Notepad++ and the original color scheme provided with [
 
 
 ### Screenshots:
-![screenshots](https://github.com/optiMiskit/tickflow-syntax-highlighting-for-sublime/blob/main/Screenshots.gif)
+![screenshots](https://github.com/optiMiskit/tickflow-syntax-highlighting-for-sublime/blob/main/Screenshots.png)
 
 ## Installation
 1. Download the latest release: [![Downloads](https://img.shields.io/github/downloads/optiMiskit/tickflow-syntax-highlighting-for-sublime/total.svg)](https://github.com/optiMiskit/tickflow-syntax-highlighting-for-sublime/releases) or clone the repo.  
