@@ -2,8 +2,6 @@
 A collection of resources to add Tickflow syntax highlighting that is context aware (example: hex numbers that represent subroutines are colored differently than hex numbers used as values).  
 Color scheme is based on Notepad++ and the original color scheme provided with [Tickompiler](https://github.com/rhmodding/Tickompiler).
 
-
-### Screenshots:
 ![screenshots](https://github.com/optiMiskit/tickflow-syntax-highlighting-for-sublime/blob/main/Screenshots.png)
 
 ## Installation
