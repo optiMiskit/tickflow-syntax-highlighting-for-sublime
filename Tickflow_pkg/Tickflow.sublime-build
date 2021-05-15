@@ -1,12 +1,27 @@
 {
-	/* To change the Tickompiler location:
-		1. Comment out the first "shell_cmd" line
-		2. Add back the second "shell_cmd" line
-		3. Replace "TICKOMPILER_PATH" with the path you keep Tickompiler (eg: C:/Users/me/Desktop/Tickompiler.jar, /Applications/Tools/Tickompiler.jar)
-	*/
-    "shell_cmd": "echo \"By default, this tool looks for Tickompiler in the same directory as the .tickflow file.\n(You can modify Tickflow.sublime-build to change this)\n----------\" && java -jar Tickompiler.jar compile \"$file\"",
-    //"shell_cmd": "java -jar TICKOMPILER_PATH compile \"$file\"",
-    "file_regex": "^(...*?):([0-9]*):?([0-9]*)",
+    /* To change the Tickompiler location:
+        1. Comment out the first "shell_cmd" in the section with your OS
+        2. Add back the second "shell_cmd" line
+        3. Replace "TICKOMPILER_PATH" with your Tickompiler.jar path (eg: C:/Users/You/Desktop/Tickompiler.jar, /Applications/Tools/Tickompiler.jar) */
+
+    "windows":
+    {
+        "shell_cmd": "echo \"By default, this tool looks for Tickompiler in the same directory as the .tickflow file.\" && echo \"(You can modify Tickflow.sublime-build to change this)\" && echo \"----------\"  && java -jar Tickompiler.jar compile \"$file\""
+        //"shell_cmd": "java -jar TICKOMPILER_PATH compile \"$file\""
+    },
+
+    "osx":
+    {
+        "shell_cmd": "echo \"By default, this tool looks for Tickompiler in the same directory as the .tickflow file.\n(You can modify Tickflow.sublime-build to change this)\n----------\" && java -jar Tickompiler.jar compile \"$file\""
+    	//"shell_cmd": "java -jar TICKOMPILER_PATH compile \"$file\""
+	},
+    "linux":
+    {
+        "shell_cmd": "echo $'By default, this tool looks for Tickompiler in the same directory as the .tickflow file.\n(You can modify Tickflow.sublime-build to change this)\n----------'\" && java -jar Tickompiler.jar compile \"$file\""
+        //"shell_cmd": "java -jar TICKOMPILER_PATH compile \"$file\""
+    },
+
     "selector": "source.tickflow",
-    "quiet": true
+    "file_regex": "^(...*?):([0-9]*):?([0-9]*)",
+    "quiet": true,
 }
