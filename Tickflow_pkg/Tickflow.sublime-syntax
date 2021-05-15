@@ -3,7 +3,6 @@
 name: Tickflow
 file_extensions: [tickflow]
 scope: source.tickflow
-# Version 1.01 - May 12, 2021
 
 variables:
   hex_number: '\b0[xX][0-9a-fA-F]+\b'
