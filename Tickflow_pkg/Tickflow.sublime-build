@@ -14,7 +14,7 @@
     {
         "shell_cmd": "echo \"By default, this tool looks for Tickompiler in the same directory as the .tickflow file.\n(You can modify Tickflow.sublime-build to change this)\n----------\" && java -jar Tickompiler.jar compile \"$file\""
     	//"shell_cmd": "java -jar TICKOMPILER_PATH compile \"$file\""
-	},
+    },
     "linux":
     {
         "shell_cmd": "echo $'By default, this tool looks for Tickompiler in the same directory as the .tickflow file.\n(You can modify Tickflow.sublime-build to change this)\n----------'\" && java -jar Tickompiler.jar compile \"$file\""
