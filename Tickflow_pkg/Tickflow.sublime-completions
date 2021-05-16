@@ -1,0 +1,21 @@
+{
+	"scope": "source.tickflow",
+
+	"completions":
+	[
+		"if", "else", "if_neq", "if_lt", "if_leq", "if_gt", "if_geq", "endif", "switch", "endswitch", "goto", "case", "break", "default",
+		"async_sub", "set_func", "get_async", "async_call", "kill_all", "kill_cat", "kill_loc", "kill_sub", "sub", "get_sync", "call", "return", "stop", "set_cat",
+		"call", "label", "set_condvar","add_condvar","push_condvar","pop_condvar", 
+		"rest", "setrest", "getrest", "rest_reset", "unrest",
+		"set_countdown", "set_countdown_condvar", "get_countdown_init", "get_countdown_prog", "get_countdown", "dec_countdown",
+		"speed", "speed_relative",
+		"game_model", "game_cellanim", "game_effect", "game_layout",
+		"set_model", "remove_model", "has_model",
+		"set_cellanim", "cellanim_busy", "remove_cellanim",
+		"set_effect", "effect_busy", "remove_effect",
+		"set_layout", "layout_busy", "remove_layout",
+		"play_sfx", "set_sfx", "remove_sfx",
+		"zoom", "zoom_gradual", "pan", "pan_gradual", "rotate", "rotate_gradual", "fade",
+		"engine", "input", "star", "random", "debug"
+	]
+}

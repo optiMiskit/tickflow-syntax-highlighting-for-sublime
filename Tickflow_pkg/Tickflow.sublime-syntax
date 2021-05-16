@@ -39,7 +39,6 @@ contexts:
       scope: entity.name.functions.name.tickflow
     - match: '(?<=\bkill_loc\b)[ \t]+{{word_letterStart}}'
       scope: entity.name.functions.name.tickflow
-    # Not ideal but it works
     - match: '((?<=set_func...)|(?<=set_func.....)|(?<=set_func......))[ \t]+{{word_letterStart}}[ \t]*$'
       scope: entity.name.functions.name.tickflow
 
