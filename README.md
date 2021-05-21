@@ -1,6 +1,6 @@
 # Tickflow Syntax for [Sublime Text](https://www.sublimetext.com)
 A collection of resources to add Tickflow syntax highlighting that is context aware (example: hex numbers that represent subroutines are colored differently than hex numbers used as values).  
-Color scheme is based on Notepad++ and the original color scheme provided with [Tickompiler](https://github.com/rhmodding/Tickompiler).
+Color scheme is based on Notepad++ and the original color scheme provided with [Tickompiler](https://github.com/rhmodding/Tickompiler).  
 
 ![screenshots](https://github.com/optiMiskit/tickflow-syntax-highlighting-for-sublime/blob/main/Screenshots.png)
 
@@ -19,5 +19,7 @@ Using `Tools->Build`, you can also compile into a .bin file.
 Makes navigation easier; provides tickflow syntax support for a program that is natively supported by Windows, MacOS, and Linux.
 
 ## Work-in-progress
-1. Template files
-2. Improving build options.
+1. Make template files
+2. Make common snippets
+3. Improve build options.
+4. Improve Sublime Text 4 support (currently, completions are meh in ST4).
