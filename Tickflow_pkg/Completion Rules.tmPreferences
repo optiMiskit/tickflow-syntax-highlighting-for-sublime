@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+<dict>
+	<key>scope</key>
+	<string>source.tickflow</string>
+	<key>settings</key>
+	<dict>
+		<key>cancelCompletion</key>
+		<string>^(\S+[ \t]+.*)$|0x</string>
+	</dict>
+</dict>
+</plist>

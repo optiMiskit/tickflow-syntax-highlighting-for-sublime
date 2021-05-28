@@ -3,19 +3,485 @@
 
 	"completions":
 	[
-		"if", "else", "if_neq", "if_lt", "if_leq", "if_gt", "if_geq", "endif", "switch", "endswitch", "goto", "case", "break", "default",
-		"async_sub", "set_func", "get_async", "async_call", "kill_all", "kill_cat", "kill_loc", "kill_sub", "sub", "get_sync", "call", "return", "stop", "set_cat",
-		"call", "label", "set_condvar","add_condvar","push_condvar","pop_condvar", 
-		"rest", "setrest", "getrest", "rest_reset", "unrest",
-		"set_countdown", "set_countdown_condvar", "get_countdown_init", "get_countdown_prog", "get_countdown", "dec_countdown",
-		"speed", "speed_relative",
-		"game_model", "game_cellanim", "game_effect", "game_layout",
-		"set_model", "remove_model", "has_model",
-		"set_cellanim", "cellanim_busy", "remove_cellanim",
-		"set_effect", "effect_busy", "remove_effect",
-		"set_layout", "layout_busy", "remove_layout",
-		"play_sfx", "set_sfx", "remove_sfx",
-		"zoom", "zoom_gradual", "pan", "pan_gradual", "rotate", "rotate_gradual", "fade",
-		"engine", "input", "star", "random", "debug"
+        // ------------------------------
+        {
+            "trigger": "async_call",
+            "annotation": "loc, delay",
+            "contents": "async_call ${1:loc}, ${2:delay}",
+            "kind": "function",
+            "details": "async. call to function <code>loc</code> after <code>delay</code>"
+        },
+        {
+            "trigger": "call",
+            "annotation": "loc, delay",
+            "contents": "call ${1:loc}",
+            "kind": "function",
+            "details": "sync. call to function <code>loc</code>"
+        },
+		// ------------------------------
+		{
+            "trigger": "async_sub",
+            "annotation": "id, (delay, cat)",
+            "contents": "async_sub ${1:id}, ${2:delay}, ${3:cat}",
+            "kind": "function",
+            "details": "async. call to subroutine <code>id</code> after <code>delay</code> w/thread category <code>cat</code>"
+        },
+        {
+            "trigger": "sub",
+            "annotation": "id",
+            "contents": "sub ${1:id}",
+            "kind": "function",
+            "details": "sync. call to subroutine <code>id</code>"
+        },
+
+		// ------------------------------
+        {
+            "trigger": "rest",
+            "annotation": "duration",
+            "contents": "rest ${1:duration}",
+            "kind": "function",
+            "details": "Adds time to rest counter <tt>[48 = 0x30 = 1 beat]</tt>"
+        },
+        {
+            "trigger": "unrest",
+            "annotation": "duration",
+            "contents": "unrest ${1:duration}",
+            "kind": "function",
+            "details": "Subtracts time from rest counter <tt>[48 = 0x30 = 1 beat]</tt>"
+        },
+        {
+            "trigger": "rest_reset",
+            "kind": "function",
+            "details": "Sets rest counter to 0"
+        },
+
+        {
+            "trigger": "setrest",
+            "annotation": " slot, duration",
+            "contents": "setrest ${1:slot}, ${2:duration}",
+            "kind": "function",
+            "details": "<code>duration</code> is stored into <code>slot</code>"
+        },
+        {
+            "trigger": "getrest",
+            "annotation": "slot",
+            "contents": "getrest ${1:slot}",
+            "kind": "function",
+            "details": "Adds duration from <code>slot</code> to the rest counter"
+        },
+
+		// ------------------------------
+        {
+            "trigger": "speed",
+            "annotation": "val",
+            "contents": "speed ${1:val}",
+            "kind": "function",
+            "details": "Sets speed to <code>val</code>/256 of original speed <tt>[256 = 0x100 = orig. speed]</tt>"
+        },
+        {
+            "trigger": "speed_relative",
+            "annotation": "val, lower_bound, upper_bound",
+            "contents": "speed_relative ${1:val}, ${2:lb}, ${3:ub}",
+            "kind": "function",
+            "details": "Game speed * <code>val</code>/256 if within <code>bounds</code>/256 <tt>[256 = 0x100 = orig. speed]</tt>"
+        },
+
+		// ------------------------------
+        {
+            "trigger": "game_cellanim",
+            "annotation": "id, slot",
+            "contents": "game_cellanim ${1:id}, ${2:slot}",
+            "kind": "function",
+            "details": "Assigns game engine <code>id</code> to a cellanim slot <tt>[starts @ 2]</tt>"
+        },
+        {
+            "trigger": "game_effect",
+            "annotation": "id, slot",
+            "contents": "game_effect ${1:id}, ${2:slot}",
+            "kind": "function",
+            "details": "Assigns game engine <code>id</code> to an effect slot <tt>[starts @ 2]</tt>"
+        },
+        {
+            "trigger": "game_layout",
+            "annotation": "id, slot",
+            "contents": "game_layout ${1:id}, ${2:slot}",
+            "kind": "function",
+            "details": "Assigns game engine <code>id</code> to a layout slot <tt>[starts @ 4]</tt>"
+        },
+        {
+            "trigger": "game_model",
+            "annotation": "id, slot",
+            "contents": "game_model ${1:id}, ${2:slot}",
+            "kind": "function",
+            "details": "Assigns game engine <code>id</code> to a model slot <tt>[starts @ 1]</tt>"
+        },
+
+		// ------------------------------
+        {
+            "trigger": "set_cellanim",
+            "annotation": "slot, str, ???",
+            "contents": "set_cellanim ${1:slot}, u\"rom:/cellanim/${2:file}.zlib\", -1",
+            "kind": "function",
+            "details": "Assigns game assets to cellanim slot <tt>[starts @ 2]</tt>"
+        },
+        {
+            "trigger": "set_effect",
+            "annotation": "slot, str, ?",
+            "contents": "set_effect ${1:slot}, u\"rom:/effect/${2:file}.zlib\", -1",
+            "kind": "function",
+            "details": "Assigns game assets to effect slot <tt>[starts @ 2]</tt>"
+        },
+        {
+            "trigger": "set_layout",
+            "annotation": "slot, str, ?",
+            "contents": "set_layout ${1:slot}, u\"rom:/layout/${2:file}.zlib\", -1",
+            "kind": "function",
+            "details": "Assigns game assets to layout slot <tt>[starts @ 4]</tt>"
+        },
+        {
+            "trigger": "set_model",
+            "annotation": "slot, str, ?",
+            "contents": "set_model ${1:slot}, u\"rom:/model/${2:file}.zlib\", 1",
+            "kind": "function",
+            "details": "Assigns game assets to model slot <tt>[starts @ 1]</tt>"
+        },
+
+        {
+            "trigger": "play_sfx",
+            "annotation": "id",
+            "contents": "play_sfx ${1:id}",
+            "kind": "function",
+            "details": "Plays sfx based on <code>id</code>"
+        },
+        {
+            "trigger": "set_sfx",
+            "annotation": "slot, str, ?",
+            "contents": "set_sfx ${1:slot}, u\"${2:file}\"",
+            "kind": "function",
+            "details": "Assigns sfx group to sfx slot <tt>[starts @ 1]</tt>"
+        },
+
+		// ------------------------------
+        {
+            "trigger": "remove_cellanim",
+            "annotation": "slot",
+            "contents": "remove_cellanim ${1:slot}",
+            "kind": "function",
+            "details": "Remove cellanim loaded at <code>slot</code> <tt>[starts @ 2]</tt>"
+        },
+        {
+            "trigger": "remove_effect",
+            "annotation": "slot",
+            "contents": "remove_effect ${1:slot}",
+            "kind": "function",
+            "details": "Remove effect loaded at <code>slot</code> <tt>[starts @ 2]</tt>"
+        },
+        {
+            "trigger": "remove_layout",
+            "annotation": "slot",
+            "contents": "remove_layout ${1:slot}",
+            "kind": "function",
+            "details": "Remove layout loaded at <code>slot</code> <tt>[starts @ 4]</tt>"
+        },
+        {
+            "trigger": "remove_model",
+            "annotation": "slot",
+            "contents": "remove_model ${1:slot}",
+            "kind": "function",
+            "details": "Remove model loaded at <code>slot</code> <tt>[starts @ 1]</tt>"
+        },
+        {
+            "trigger": "remove_sfx",
+            "annotation": "slot",
+            "contents": "remove_sfx ${1:slot}",
+            "kind": "function",
+            "details": "Remove sfx loaded at <code>slot</code> <tt>[starts @ 1]</tt>"
+        },
+
+        // ------------------------------
+        {
+            "trigger": "cellanim_busy",
+            "annotation": "slot",
+            "contents": "cellanim_busy ${1:slot}",
+            "kind": "function",
+            "details": "Sets condvar to 1 if <code>slot</code> is/isn't being written to/cleared <tt>[slots start @ 2]</tt>"
+        },
+        {
+            "trigger": "effect_busy",
+            "annotation": "slot",
+            "contents": "effect_busy ${1:slot}",
+            "kind": "function",
+            "details": "Sets condvar to 1 if <code>slot</code> is/isn't being written to/cleared <tt>[slots start @ 2]</tt>"
+        },
+        {
+            "trigger": "layout_busy",
+            "annotation": "slot",
+            "contents": "layout_busy ${1:slot}",
+            "kind": "function",
+            "details": "Sets condvar to 1 if <code>slot</code> is/isn't being written to/cleared <tt>[slots start @ 4]</tt>"
+        },
+        {
+            "trigger": "has_model",
+            "annotation": "slot",
+            "contents": "has_model ${1:slot}",
+            "kind": "function",
+            "details": "Sets condvar to 1 if <code>slot</code> has model <tt>[slots start @ 1]</tt>"
+        },
+
+        // ------------------------------
+        {
+            "trigger": "engine",
+            "annotation": "id",
+            "contents": "engine ${1:id}",
+            "kind": "function",
+            "details": "Sets game engine to <code>id</code>"
+        },
+        {
+            "trigger": "input",
+            "annotation": "flag",
+            "contents": "input ${1:flag}",
+            "kind": "function",
+            "details": "Enables (1) or disables (0) input"
+        },
+        {
+            "trigger": "star",
+            "annotation": "duration",
+            "contents": "star ${1:duration}",
+            "kind": "function",
+            "details": "Skill star appears after <code>duration</code>. Don't blame me if it doesn't work."
+        },
+        {
+            "trigger": "random",
+            "annotation": "val",
+            "contents": "random ${1:val}",
+            "kind": "function",
+            "details": "Writes a random number from [0, <code>val</code>) to condvar."
+        },
+        {
+            "trigger": "debug",
+            "annotation": "val",
+            "contents": "debug \"TICKFLOW >>> ${1:0000}\\n\"",
+            "kind": "function",
+            "details": "? (not sure how it functions)"
+        },
+
+        // ------------------------------
+        {
+            "trigger": "fade",
+            "annotation": "???",
+            "contents": "fade ",
+            "kind": "function",
+            "details": "Stuff"
+        },
+        {
+            "trigger": "zoom",
+            "annotation": "n, x, y",
+            "contents": "zoom ${1:n}, ${2:x}, ${3:y}",
+            "kind": "function",
+            "details": "Instant zoom view <code>n</code>; Scales: <code>x</code>/0x100 <code>y</code>/0x100"
+        },
+        {
+            "trigger": "zoom_gradual",
+            "annotation": "n, i, s, duration, x, y",
+            "contents": "zoom_gradual ${1:n}, ${2:i}, ${3:s}, ${4:duration}, ${5:x}, ${6:y}",
+            "kind": "function",
+            "details": "Zoom view <code>n</code> with interpolation<code>i</code> (1-5) and intensity <code>s</code> for <code>duration</code> ticks; Scales: <code>x</code>/0x100 <code>y</code>/0x100"
+        },
+        {
+            "trigger": "pan",
+            "annotation": "n, x, y",
+            "contents": "pan ${1:n}, ${2:x}, ${3:y}",
+            "kind": "function",
+            "details": "Instant pan view <code>n</code>; move <code>x</code> units left and <code>y</code> units up"
+        },
+        {
+            "trigger": "pan_gradual",
+            "annotation": "n, i, s, duration, x, y",
+            "contents": "pan_gradual ${1:n}, ${2:i}, ${3:s}, ${4:duration}, ${5:x}, ${6:y}",
+            "kind": "function",
+            "details": "Pan view <code>n</code> with interpolation<code>i</code> (1-5) and intensity <code>s</code> for <code>duration</code> ticks; move <code>x</code> units left and <code>y</code> units up"
+        },
+        {
+            "trigger": "rotate",
+            "annotation": "n, angle",
+            "contents": "rotate ${1:n}, ${2:angle}",
+            "kind": "function",
+            "details": "Instant rotate view <code>n</code>; rotates <code>angle</code> degrees clockwise from default"
+        },
+        {
+            "trigger": "rotate_gradual",
+            "annotation": "n, i, s, duration, angle",
+            "contents": "rotate_gradual ${1:n}, ${2:i}, ${3:s}, ${4:duration}, ${5:angle}",
+            "kind": "function",
+            "details": "Rotate view <code>n</code> with interpolation<code>i</code> (1-5) and intensity <code>s</code> for <code>duration</code> ticks; rotates <code>angle</code> degrees clockwise from default"
+        },
+
+        // ------------------------------
+        {
+            "trigger": "set_func",
+            "annotation": "slot, loc",
+            "contents": "set_func ${1:slot}, ${2:loc}",
+            "kind": "function",
+            "details": "Stores the <code>loc</code> of a function into <code>slot</code>"
+        },
+        {
+            "trigger": "get_async",
+            "annotation": "slot, delay",
+            "contents": "get_async ${1:slot}, ${2:delay}",
+            "kind": "function",
+            "details": "async. call to function in <code>slot</code> after <code>delay</code>"
+        },
+        {
+            "trigger": "get_sync",
+            "annotation": "slot",
+            "contents": "get_sync ${1:slot}",
+            "kind": "function",
+            "details": "sync. call to function in <code>slot</code>"
+        },
+
+        // ------------------------------
+        {
+            "trigger": "set_cat",
+            "annotation": "c",
+            "contents": "set_cat ${1:c}",
+            "kind": "function",
+            "details": "Sets current thread category"
+        },
+
+        {
+            "trigger": "kill_all",
+            "kind": "function",
+            "details": "Kills all tickflow threads"
+        },
+        {
+            "trigger": "kill_cat",
+            "annotation": "c",
+            "contents": "kill_cat ${1:c}",
+            "kind": "function",
+            "details": "Kills all tickflow threads in category <code>c</code>"
+        },
+        {
+            "trigger": "kill_loc",
+            "annotation": "location",
+            "contents": "kill_loc ${1:location}",
+            "kind": "function",
+            "details": "Kills all tickflow threads running in function <code>loc</code>"
+        },
+        {
+            "trigger": "kill_sub",
+            "annotation": "id",
+            "contents": "kill_sub ${1:id}",
+            "kind": "function",
+            "details": "Kills all tickflow threads running in sub. <code>id</code>"
+        },
+
+        // ------------------------------
+        {
+            "trigger": "set_condvar",
+            "annotation": "val",
+            "contents": "set_condvar ${1:val}",
+            "kind": "function",
+            "details": "Sets conditional var. to <code>val</code>"
+        },
+        {
+            "trigger": "add_condvar",
+            "annotation": "val",
+            "contents": "add_condvar ${1:val}",
+            "kind": "function",
+            "details": "Adds <code>val</code> to conditional var."
+        },
+        {
+            "trigger": "push_condvar",
+            "kind": "function",
+            "details": "Push value of conditional var. to stack (16 vars. max)"
+        },
+        {
+            "trigger": "pop_condvar",
+            "kind": "function",
+            "details": "Pop value from top of stack to conditional var. (LIFO)"
+        },
+
+        // ------------------------------
+        {
+            "trigger": "set_countdown",
+            "annotation": "val",
+            "contents": "set_countdown ${1:val}",
+            "kind": "function",
+            "details": "Sets countdown value and sets progress to 0"
+        },
+        {
+            "trigger": "set_countdown_condvar",
+            "kind": "function",
+            "details": "Sets countdown value to condvar. and sets progress to 0"
+        },
+        {
+            "trigger": "get_countdown_init",
+            "kind": "function",
+            "details": "Sets condvar. to the inital countdown value"
+        },
+        {
+            "trigger": "get_countdown_prog",
+            "kind": "function",
+            "details": "Sets condvar. to the current progress value"
+        },
+        {
+            "trigger": "get_countdown",
+            "kind": "function",
+            "details": "Sets condvar. to current countdown value <tt>(initial - progress)</tt>"
+        },
+        {
+            "trigger": "dec_countdown",
+            "kind": "function",
+            "details": "Decreases countdown by 1 <tt>(internally does progress + 1)</tt>"
+        },
+
+        // ------------------------------
+        {
+            "trigger": "func",
+            "annotation": "asynchronous",
+            "contents": "${1:func_name}:\n${2:// code}\nstop",
+            "kind": "snippet",
+            "details": "async. function template"
+        },
+        {
+            "trigger": "func",
+            "annotation": "synchronous",
+            "contents": "${1:func_name}:\n${2:// code}\nreturn",
+            "kind": "snippet",
+            "details": "sync. function template"
+        },
+        {
+            "trigger": "switch",
+            "annotation": "",
+            "contents": "switch\n\tcase ${1:arg1}\n\t// code\n\tbreak\n\tcase ${3:arg2}\n\t// code\n\tdefault\n\t// code\nendswitch",
+            "kind": "snippet",
+            "details": "sync. function template"
+        },
+        {
+            "trigger": "if",
+            "annotation": "",
+            "contents": "if\n\t// code\nelse\n\t// code\nendif",
+            "kind": "snippet",
+            "details": "if else template"
+        },
+
+        // ------------------------------
+		{ "trigger": "if", 		"kind": "keyword"},
+		{ "trigger": "else", 	"kind": "keyword"},
+		{ "trigger": "if_neq",	"kind": "keyword"},
+		{ "trigger": "if_lt",	"kind": "keyword"},
+		{ "trigger": "if_leq",	"kind": "keyword"},
+		{ "trigger": "if_gt",	"kind": "keyword"},
+		{ "trigger": "if_geq",	"kind": "keyword"},
+		{ "trigger": "endif",	"kind": "keyword"},
+		{ "trigger": "switch",	"kind": "keyword"},
+		{ "trigger": "endswitch", "kind": "keyword"},
+		{ "trigger": "goto",	"kind": "keyword"},
+		{ "trigger": "case",	"kind": "keyword"},
+		{ "trigger": "break",	"kind": "keyword"},
+		{ "trigger": "default",	"kind": "keyword"},
+		{ "trigger": "return",	"kind": "keyword"},
+		{ "trigger": "stop",	"kind": "keyword"},
+		{ "trigger": "label",	"kind": "keyword"},
 	]
 }

@@ -1,25 +1,40 @@
 {
-    /* To change the Tickompiler location:
-        1. Comment out the first "shell_cmd" in the section with your OS
-        2. Add back the second "shell_cmd" line
-        3. Replace "TICKOMPILER_PATH" with your Tickompiler.jar path (eg: C:/Users/You/Desktop/Tickompiler.jar, /Applications/Tools/Tickompiler.jar) */
+    "target": "build_var_setup",
+    "shell_cmd": "echo \\${msg} && echo ---------- COMPILE ----------&& java -jar \"\\${tickompiler}\" compile \"${file}\" Compiled",
 
-    "windows":
-    {
-        "shell_cmd": "echo By default, this tool looks for Tickompiler in the same directory as the .tickflow file. && echo (You can modify Tickflow.sublime-build to change this) && echo ----------  && java -jar Tickompiler.jar compile \"$file\""
-        //"shell_cmd": "java -jar TICKOMPILER_PATH compile \"$file\""
-    },
-
-    "osx":
-    {
-        "shell_cmd": "echo \"By default, this tool looks for Tickompiler in the same directory as the .tickflow file.\n(You can modify Tickflow.sublime-build to change this)\n----------\" && java -jar Tickompiler.jar compile \"$file\""
-    	//"shell_cmd": "java -jar TICKOMPILER_PATH compile \"$file\""
-    },
-    "linux":
-    {
-        "shell_cmd": "echo $'By default, this tool looks for Tickompiler in the same directory as the .tickflow file.\n(You can modify Tickflow.sublime-build to change this)\n----------'\" && java -jar Tickompiler.jar compile \"$file\""
-        //"shell_cmd": "java -jar TICKOMPILER_PATH compile \"$file\""
-    },
+    "variants":
+    [
+        {
+            "name": "Compile, Pack, & Move to Citra",
+            "windows":
+            {
+                "shell_cmd": "echo \\${msg}&& echo ---------- COMPILE ----------&& java -jar \"\\${tickompiler}\" compile \"${file}\" Compiled && echo.&& echo ---------- PACK ----------&& echo Copying tempo files (if any) to Compiled folder&& xcopy *.tempo Compiled /c /y /q && echo.&& java -jar \"\\${tickompiler}\" pack Compiled \"\\${base_loc}\" && echo.&& echo ---------- MOVE ----------&& echo Copying C00.bin to \\${citra_loc}&& xcopy C00.bin \"\\${citra_loc}\" /c /y /q && echo.&& echo =============================&& echo.&& echo Build Complete :)"
+            },
+            "osx":
+            {
+                "shell_cmd": "echo \"\\${msg}\" && echo \"---------- COMPILE ----------\" && java -jar \"\\${tickompiler}\" compile \"${file}\" Compiled && echo \"\n---------- PACK ----------\"&& echo \"Copying tempo files (if any) to Compiled folder\" && cp *.tempo Compiled 2>/dev/null ||: && java -jar \"\\${tickompiler}\" pack \"Compiled\" \"\\${base_loc}\" && echo \"\n---------- MOVE ----------\" && echo \"Copying C00.bin to \"\\${citra_loc}\"\" && cp C00.bin \"\\${citra_loc}\" && echo \"\n=============================\" && echo \"\nBuild Complete :)\""
+            },
+            "linux":
+            {
+                "shell_cmd": "echo \\${msg}&& echo ---------- COMPILE ----------&& java -jar \"\\${tickompiler}\" compile \"${file}\" Compiled && echo && echo ---------- PACK ----------&& echo Copying tempo files (if any) to Compiled folder&& cp *.tempo Compiled 2>/dev/null ||: && echo && java -jar \"\\${tickompiler}\" pack Compiled \"\\${base_loc}\" && echo && echo ---------- MOVE ----------&& echo Copying C00.bin to \\${citra_loc}&& cp C00.bin \"\\${citra_loc}\" 2>/dev/null ||: && echo && echo =============================&& echo && echo Build Complete :)"
+            }
+        },
+        {
+            "name": "[Multi] Compile, Pack, & Move to Citra",
+            "windows":
+            {
+                "shell_cmd": "echo \\${msg}&& echo ---------- COMPILE ----------&& java -jar \"\\${tickompiler}\" compile \"${file_path}\" Compiled && echo.&& echo ---------- PACK ----------&& echo Copying tempo files (if any) to Compiled folder&& xcopy *.tempo Compiled /c /y /q && echo.&& java -jar \"\\${tickompiler}\" pack Compiled \"\\${base_loc}\" && echo.&& echo ---------- MOVE ----------&& echo Copying C00.bin to \\${citra_loc}&& xcopy C00.bin \"\\${citra_loc}\" /c /y /q  && echo.&& echo =============================&& echo.&& echo Build Complete :)"
+            },
+            "osx":
+            {
+                "shell_cmd": "echo \"\\${msg}\" && echo \"---------- COMPILE ----------\" && java -jar \"\\${tickompiler}\" compile \"${file_path}\" Compiled && echo \"\n---------- PACK ----------\"&& echo \"Copying tempo files (if any) to Compiled folder\" && cp *.tempo Compiled 2>/dev/null ||: && java -jar \"\\${tickompiler}\" pack Compiled \"\\${base_loc}\" && echo \"\n---------- MOVE ----------\" && echo \"Copying C00.bin to \\${citra_loc}\" && cp C00.bin \"\\${citra_loc}\" && echo \"\n=============================\" && echo \"\nBuild Complete :)\""
+            },
+            "linux":
+            {
+                "shell_cmd": "echo \\${msg}&& echo ---------- COMPILE ----------&& java -jar \"\\${tickompiler}\" compile \"${file_path}\" Compiled && echo && echo ---------- PACK ----------&& echo Copying tempo files (if any) to Compiled folder&& cp *.tempo Compiled 2>/dev/null ||: && echo && java -jar \"\\${tickompiler}\" pack Compiled \"\\${base_loc}\" && echo && echo ---------- MOVE ----------&& echo Copying C00.bin to \\${citra_loc}&& cp C00.bin \"\\${citra_loc}\" 2>/dev/null ||: && echo && echo =============================&& echo && echo Build Complete :)"
+            }
+        }
+    ],
 
     "selector": "source.tickflow",
     "file_regex": "^(...*?):([0-9]*):?([0-9]*)",

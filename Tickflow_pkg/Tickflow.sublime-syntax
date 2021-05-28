@@ -18,8 +18,8 @@ contexts:
     - include: keywords
     - include: function_names
     - include: labels
-    - include: numbers
     - include: subs
+    - include: numbers
     - include: hexnums
     - include: strings
     - include: common_functions
@@ -81,6 +81,8 @@ contexts:
 
   subs:
     - match: '^\s*{{hex_number}}'
+      scope: entity.name.functions.subs.tickflow
+    - match: '^\s*{{int_number}}'
       scope: entity.name.functions.subs.tickflow
     - match: '(?<=\basync_sub\b)[ \t]+{{number}}'
       scope: entity.name.functions.subs.tickflow

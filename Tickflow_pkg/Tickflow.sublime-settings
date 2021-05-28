@@ -2,5 +2,12 @@
 {
 	    "color_scheme": "Tickflow.sublime-color-scheme",
 	    "highlight_line": true,
-	    "tab_completion": false
+	    "tab_completion": false,
+	    "auto_complete_triggers":
+	    [
+	    	{
+	    		"selector": "source.tickflow",
+     	  		"characters": "`"
+	    	}
+	    ]
 }
