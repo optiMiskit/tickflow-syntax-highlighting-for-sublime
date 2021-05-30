@@ -7,7 +7,7 @@ A collection of resources to add Tickflow syntax highlighting that is context aw
 1. Clone the repo or download the latest release: [![Downloads](https://img.shields.io/github/downloads/optiMiskit/tickflow-syntax-highlighting-for-sublime/total.svg)](https://github.com/optiMiskit/tickflow-syntax-highlighting-for-sublime/releases). It is recommened to use this with Sublime Text 4.  
 2. Place the `Tickflow_pkg` folder in the Sublime package folder (which you can find via `Preferences-> Browse Packages`).  
 3. Close any .tickflow files you had open prior to installation and restart Sublime Text.  
-4. To build through Sublime Text, place **both** `Tickomplier.jar` and `base.bin` in **one** of these directories:
+4. To build through Sublime Text, place **both** `Tickomplier.jar` and `base.bin` in **one** of these four directories:
 ```
 .
 ├── Desktop/
@@ -21,7 +21,7 @@ If for whatever reason your Citra installation doesn't have the [default user di
 
 ## Usage - Syntax
 * Any .tickflow file you open will automatically use the .tickflow color scheme and syntax highlighting.  
-* If you type at the start of a new line, Sublime will have auto-complete suggestions. Typically, there will be some description and a list of arguments for each suggestion.
+* If you type at the start of a new line, Sublime will have auto-complete suggestions. Typically, there will be some description and a list of arguments for each suggestion. Descriptions are based on [this documentation](https://tickompiler.readthedocs.io/en/latest/functions.html).
 * If you hit 'Enter' on a suggestion, Sublime will highlight the first argument, so you can fill it in. If you hit 'Tab', you will move onto the next argument and so forth, until there are no more arguments.  
 * For the list of currently known command names, you can type `` ` `` at the start of a new line. Please note that Sublime doesn't automatically delete the `` ` `` should you hit 'Enter' on one of the options in the list, so you will need to remove it.
 
