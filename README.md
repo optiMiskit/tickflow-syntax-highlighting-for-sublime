@@ -1,10 +1,11 @@
 # Tickflow Syntax for [Sublime Text](https://www.sublimetext.com)
-A collection of resources to add Tickflow syntax highlighting that is context aware (example: hex numbers that represent subroutines are colored differently than hex numbers used as values). Color scheme is based on Notepad++ and the original color scheme provided with [Tickompiler](https://github.com/rhmodding/Tickompiler).  
+## Dark Mode
+A collection of resources to add Tickflow syntax highlighting that is context aware (example: hex numbers that represent subroutines are colored differently than hex numbers used as values). Color scheme is based on VSCode.  
 
-![screenshots](https://github.com/optiMiskit/tickflow-syntax-highlighting-for-sublime/blob/main/Screenshots.png)
+![preview](https://github.com/optiMiskit/tickflow-sublime-dark/blob/main/preview.png)
 
 ## Installation
-1. Clone the repo or download the latest release: [![Downloads](https://img.shields.io/github/downloads/optiMiskit/tickflow-syntax-highlighting-for-sublime/total.svg)](https://github.com/optiMiskit/tickflow-syntax-highlighting-for-sublime/releases). It is recommened to use this with Sublime Text 4.  
+1. Clone the repo or download the latest release: [![Downloads](https://img.shields.io/github/downloads/optiMiskit/tickflow-sublime-dark/total.svg)](https://github.com/optiMiskit/tickflow-sublime-dark/releases). It is recommened to use this with Sublime Text 4.  
 2. Place the `Tickflow_pkg` folder in the Sublime package folder (which you can find via `Preferences-> Browse Packages`).  
 3. Close any .tickflow files you had open prior to installation and restart Sublime Text.  
 4. To build through Sublime Text, place **both** `Tickomplier.jar` and `base.bin` in **one** of these four directories:
