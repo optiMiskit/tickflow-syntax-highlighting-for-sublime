@@ -1,0 +1,119 @@
+%YAML 1.2
+---
+name: Tickflow
+file_extensions: [tickflow]
+scope: source.tickflow
+
+variables:
+  hex_number: '\b0[xX][0-9a-fA-F]+\b'
+  int_number: '\b(-)?[0-9.]+\b'
+  number: '({{hex_number}}|{{int_number}})'
+  word_letterStart: '\b[\p{L}](\S*?)\b'     # strings that start with a letter
+  startingWhitespace: '^[ \t]*'
+
+contexts:
+  prototype:
+    - include: comments
+
+  main:
+    - include: keywords
+    - include: function_names
+    - include: labels
+    - include: subs
+    - include: numbers
+    - include: hexnums
+    - include: strings
+    - include: common_functions
+
+  keywords:
+    - match: '{{startingWhitespace}}\b(if|else|if_neq|if_lt|if_leq|if_gt|if_geq|endif|switch|endswitch|goto|case|break|default)\b'
+      scope: keyword.control.tickflow
+    - match: '{{startingWhitespace}}\b(async_sub|set_func|get_async|async_call|kill_all|kill_cat|kill_loc|kill_sub|sub|get_sync|call|return|stop|set_cat)\b'
+      scope: keyword.control.thread.tickflow
+
+  function_names:
+    - match: '{{startingWhitespace}}{{word_letterStart}}:'
+      scope: entity.name.functions.name.tickflow
+    - match: '(?<=\bcall\b)[ \t]+{{word_letterStart}}'
+      scope: entity.name.functions.name.tickflow
+    - match: '(?<=\basync_call\b)[ \t]+{{word_letterStart}}'
+      scope: entity.name.functions.name.tickflow
+    - match: '(?<=\bkill_loc\b)[ \t]+{{word_letterStart}}'
+      scope: entity.name.functions.name.tickflow
+    - match: '((?<=set_func...)|(?<=set_func.....)|(?<=set_func......))[ \t]+{{word_letterStart}}[ \t]*$'
+      scope: entity.name.functions.name.tickflow
+
+  labels:
+    - match: '\blabel\b'
+      scope: keyword.control.labels.tickflow
+    - match: '(?<=\blabel\b)[ \t]+{{number}}'
+      scope: keyword.control.labels.id.tickflow
+    - match: '(?<=\bgoto\b)[ \t]+{{number}}'
+      scope: keyword.control.labels.id.tickflow
+
+  numbers:
+    - match: '{{int_number}}'
+      scope: constant.numeric.integer.tickflow
+      comment: "Technically natural/whole numbers but shhhhhhhhh..."
+  hexnums:
+    - match: '{{hex_number}}'
+      scope: constant.numeric.hex.tickflow
+
+  strings:
+    - match: '"'
+      scope: punctuation.definition.string.begin.tickflow
+      push: inside_string
+  inside_string:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.double.tickflow
+    - match: '\.'
+      scope: constant.character.escape.tickflow
+    - match: '"'
+      scope: punctuation.definition.string.end.tickflow
+      pop: true
+
+  comments:
+    - match: '//'
+      scope: punctuation.definition.comment.tickflow
+      push:
+        - meta_scope: comment.line.double-slash.tickflow
+        - match: $\n?
+          pop: true
+
+  subs:
+    - match: '^\s*{{hex_number}}'
+      scope: entity.name.functions.subs.tickflow
+    - match: '^\s*{{int_number}}'
+      scope: entity.name.functions.subs.tickflow
+    - match: '(?<=\basync_sub\b)[ \t]+{{number}}'
+      scope: entity.name.functions.subs.tickflow
+    - match: '(?<=\bkill_sub\b)[ \t]+{{number}}'
+      scope: entity.name.functions.subs.tickflow
+    - match: '(?<=\bsub\b)[ \t]+{{number}}'
+      scope: entity.name.functions.subs.tickflow
+
+  common_functions:
+    - match: '{{startingWhitespace}}\b(set_condvar|add_condvar|push_condvar|pop_condvar)\b'
+      scope: entity.name.functions.condvar.tickflow
+    - match: '{{startingWhitespace}}\b(rest|setrest|getrest|rest_reset|unrest)\b'
+      scope: entity.name.functions.rest.tickflow
+    - match: '{{startingWhitespace}}\b(set_countdown|set_countdown_condvar|get_countdown_init|get_countdown_prog|get_countdown|dec_countdown)\b'
+      scope: entity.name.functions.countdown.tickflow
+    - match: '{{startingWhitespace}}\b(speed|speed_relative)\b'
+      scope: entity.name.functions.speed.tickflow
+    - match: '{{startingWhitespace}}\b(game_model|game_cellanim|game_effect|game_layout)\b'
+      scope: entity.name.functions.slots.tickflow
+    - match: '{{startingWhitespace}}\b(set_model|remove_model|has_model)\b'
+      scope: entity.name.functions.model.tickflow
+    - match: '{{startingWhitespace}}\b(set_cellanim|cellanim_busy|remove_cellanim)\b'
+      scope: entity.name.functions.cellanim.tickflow
+    - match: '{{startingWhitespace}}\b(set_effect|effect_busy|remove_effect)\b'
+      scope: entity.name.functions.effect.tickflow
+    - match: '{{startingWhitespace}}\b(set_layout|layout_busy|remove_layout)\b'
+      scope: entity.name.functions.layout.tickflow
+    - match: '{{startingWhitespace}}\b(play_sfx|set_sfx|remove_sfx)\b'
+      scope: entity.name.functions.sfx.tickflow
+    - match: '{{startingWhitespace}}\b(zoom|zoom_gradual|pan|pan_gradual|rotate|rotate_gradual|fade)\b'
+      scope: entity.name.functions.view.tickflow
+    - match: '{{startingWhitespace}}\b(engine|input|star|random|debug)\b'
+      scope: entity.name.functions.bleh.tickflow

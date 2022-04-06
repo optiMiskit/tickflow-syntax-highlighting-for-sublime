@@ -1,0 +1,108 @@
+{
+    "name": "Tickflow (theme intended for tickflow only)",
+    "author": "optiMiskit, based on the default VSCode dark theme.",
+    "variables":
+    {
+        "orange1":  "#CE9178",
+        "orange2":  "#F9AE58",
+        "yellow1":  "#DCDCAA",
+        "green1":   "#6A9955",
+        "blue1":    "#9CDCFE",
+        "blue2":    "#569CD6",
+        "aqua1":    "#4EC9B0",
+        "purple1":  "#C586C0",
+        "pink1":    "#F92672"
+    },
+    "globals":
+    {
+        "foreground":                "#D4D4D4",
+        "background":                "#1F1F1F",
+        "caret":                     "#AEAFAD",
+        "line_highlight":            "#272727",
+        "selection":                 "#264F78",
+        "selection_border":          "#264F78",
+        "selection_border_width":    "0",
+        "selection_corner_style":   "square",
+        "inactive_selection_border": "red",
+        "gutter":                    "#333333",
+        "highlight":                 "rgba(255, 255, 255, 0.5)",
+        "find_highlight":            "#FAC661",
+        "find_highlight_foreground": "black",
+        "scroll_highlight":          "#868686",
+        "scroll_selected_highlight": "#36B7B5",
+        "line_diff_deleted":         "#892422",
+        "line_diff_added":           "#5F7A26",
+        "line_diff_modified":        "#387B9A",
+    },
+    "rules":
+    [
+        {
+            "name": "Control",
+            "scope":  "keyword.control",
+            "foreground": "var(purple1)",
+            "font_style": "unbold"
+        },
+        {
+            "name": "Thread Control",
+            "scope":  "keyword.control.thread",
+            "foreground": "var(aqua1)",
+            "font_style": "unbold"
+        },
+        {
+            "name": "Sub Names",
+            "scope":  "entity.name.functions.name",
+            "foreground": "var(pink1)",
+            "font_style": "unbold"
+        },
+        {
+            "name": "Label",
+            "scope":  "keyword.control.labels",
+            "foreground": "var(pink1)",
+            "font_style": "unbold"
+        },
+        {
+            "name": "Label IDs",
+            "scope":  "keyword.control.labels.id",
+            "foreground": "var(pink1)",
+            "font_style": "bold"
+        },
+        {
+            "name": "Integers",
+            "scope":  "constant.numeric.integer",
+            "foreground": "var(blue1)"
+        },
+        {
+            "name": "Hex Numbers",
+            "scope":  "constant.numeric.hex",
+            "foreground": "var(blue1)"
+        },
+        {
+            "name": "Strings",
+            "scope":  "string",
+            "foreground": "var(orange1)",
+            "font_style": "unbold"
+        },
+        {
+            "name": "Comments",
+            "scope":  "comment",
+            "foreground": "var(green1)"
+        },
+        {
+            "name": "Subs",
+            "scope":  "entity.name.functions.subs",
+            "foreground": "var(yellow1)",
+            "font_style": "unbold"
+        },
+        {
+            "name": "Common Functions",
+            "scope":  "\nentity.name.functions.condvar,\nentity.name.functions.speed,\nentity.name.functions.countdown,\nentity.name.functions.slots,\nentity.name.functions.model,\nentity.name.functions.cellanim,\nentity.name.functions.effect,\nentity.name.functions.layout,\nentity.name.functions.sfx,\nentity.name.functions.view,\nentity.name.functions.bleh\n",
+            "foreground": "var(blue2)"
+        },
+        {
+            "name": "Rests",
+            "scope":  "entity.name.functions.rest",
+            "foreground": "var(orange2)",
+            "font_style": "unbold"
+        }
+    ]
+}

@@ -81,3 +81,4 @@ class BuildVarSetup(ExecCommand):
                 kwargs[key] = sublime.expand_variables(kwargs[key], variables)
 
         super().run(**kwargs)
+

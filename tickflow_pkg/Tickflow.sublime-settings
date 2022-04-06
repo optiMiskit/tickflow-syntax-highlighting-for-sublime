@@ -1,0 +1,13 @@
+// These settings override both User and Default settings for the Tickflow syntax
+{
+		"color_scheme": "TickflowDark.sublime-color-scheme",
+	    "highlight_line": true,
+	    "tab_completion": false,
+	    "auto_complete_triggers":
+	    [
+	    	{
+	    		"selector": "source.tickflow",
+     	  		"characters": "`"
+	    	}
+	    ]
+}
