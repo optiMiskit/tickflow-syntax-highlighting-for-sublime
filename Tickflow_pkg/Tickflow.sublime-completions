@@ -6,14 +6,14 @@
         // ------------------------------
         {
             "trigger": "async_call",
-            "annotation": "loc, delay",
-            "contents": "async_call ${1:loc}, ${2:delay}",
+            "annotation": "loc, (delay)",
+            "contents": "async_call ${1:loc}",
             "kind": "function",
             "details": "async. call to function <code>loc</code> after <code>delay</code>"
         },
         {
             "trigger": "call",
-            "annotation": "loc, delay",
+            "annotation": "loc, (delay)",
             "contents": "call ${1:loc}",
             "kind": "function",
             "details": "sync. call to function <code>loc</code>"
@@ -119,7 +119,7 @@
 		// ------------------------------
         {
             "trigger": "set_cellanim",
-            "annotation": "slot, str, ???",
+            "annotation": "slot, str, ?",
             "contents": "set_cellanim ${1:slot}, u\"rom:/cellanim/${2:file}.zlib\", -1",
             "kind": "function",
             "details": "Assigns game assets to cellanim slot <tt>[starts @ 2]</tt>"
@@ -155,7 +155,7 @@
         },
         {
             "trigger": "set_sfx",
-            "annotation": "slot, str, ?",
+            "annotation": "slot, str",
             "contents": "set_sfx ${1:slot}, u\"${2:file}\"",
             "kind": "function",
             "details": "Assigns sfx group to sfx slot <tt>[starts @ 1]</tt>"
@@ -458,7 +458,7 @@
             "details": "sync. function template"
         },
         {
-            "trigger": "if",
+            "trigger": "ifelse",
             "annotation": "",
             "contents": "if\n\t// code\nelse\n\t// code\nendif",
             "kind": "snippet",

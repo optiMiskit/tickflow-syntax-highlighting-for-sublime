@@ -12,7 +12,7 @@
             },
             "osx":
             {
-                "shell_cmd": "echo \"\\${msg}\" && echo \"---------- COMPILE ----------\" && java -jar \"\\${tickompiler}\" compile \"${file}\" Compiled && echo \"\n---------- PACK ----------\"&& echo \"Copying tempo files (if any) to Compiled folder\" && cp *.tempo Compiled 2>/dev/null ||: && java -jar \"\\${tickompiler}\" pack \"Compiled\" \"\\${base_loc}\" && echo \"\n---------- MOVE ----------\" && echo \"Copying C00.bin to \"\\${citra_loc}\"\" && cp C00.bin \"\\${citra_loc}\" && echo \"\n=============================\" && echo \"\nBuild Complete :)\""
+                "shell_cmd": "export JAVA_HOME=`/usr/libexec/java_home -v 1.8` && echo \"\\${msg}\" && echo \"---------- COMPILE ----------\" && java -jar \"\\${tickompiler}\" compile \"${file}\" Compiled && echo \"\n---------- PACK ----------\"&& echo \"Copying tempo files (if any) to Compiled folder\" && cp *.tempo Compiled 2>/dev/null ||: && java -jar \"\\${tickompiler}\" pack \"Compiled\" \"\\${base_loc}\" && echo \"\n---------- MOVE ----------\" && echo \"Copying C00.bin to \"\\${citra_loc}\"\" && cp C00.bin \"\\${citra_loc}\" && echo \"\n=============================\" && echo \"\nBuild Complete :)\""
             },
             "linux":
             {
@@ -27,7 +27,7 @@
             },
             "osx":
             {
-                "shell_cmd": "echo \"\\${msg}\" && echo \"---------- COMPILE ----------\" && java -jar \"\\${tickompiler}\" compile \"${file_path}\" Compiled && echo \"\n---------- PACK ----------\"&& echo \"Copying tempo files (if any) to Compiled folder\" && cp *.tempo Compiled 2>/dev/null ||: && java -jar \"\\${tickompiler}\" pack Compiled \"\\${base_loc}\" && echo \"\n---------- MOVE ----------\" && echo \"Copying C00.bin to \\${citra_loc}\" && cp C00.bin \"\\${citra_loc}\" && echo \"\n=============================\" && echo \"\nBuild Complete :)\""
+                "shell_cmd": "export JAVA_HOME=`/usr/libexec/java_home -v 1.8` && echo \"\\${msg}\" && echo \"---------- COMPILE ----------\" && java -jar \"\\${tickompiler}\" compile \"${file_path}\" Compiled && echo \"\n---------- PACK ----------\"&& echo \"Copying tempo files (if any) to Compiled folder\" && cp *.tempo Compiled 2>/dev/null ||: && java -jar \"\\${tickompiler}\" pack Compiled \"\\${base_loc}\" && echo \"\n---------- MOVE ----------\" && echo \"Copying C00.bin to \\${citra_loc}\" && cp C00.bin \"\\${citra_loc}\" && echo \"\n=============================\" && echo \"\nBuild Complete :)\""
             },
             "linux":
             {

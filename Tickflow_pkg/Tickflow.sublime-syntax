@@ -9,6 +9,7 @@ variables:
   int_number: '\b(-)?[0-9.]+\b'
   number: '({{hex_number}}|{{int_number}})'
   word_letterStart: '\b[\p{L}](\S*?)\b'     # strings that start with a letter
+  startingWhitespace: '^[ \t]*'
 
 contexts:
   prototype:
@@ -25,13 +26,13 @@ contexts:
     - include: common_functions
 
   keywords:
-    - match: '\b(if|else|if_neq|if_lt|if_leq|if_gt|if_geq|endif|switch|endswitch|goto|case|break|default)\b'
+    - match: '{{startingWhitespace}}\b(if|else|if_neq|if_lt|if_leq|if_gt|if_geq|endif|switch|endswitch|goto|case|break|default)\b'
       scope: keyword.control.tickflow
-    - match: '\b(async_sub|set_func|get_async|async_call|kill_all|kill_cat|kill_loc|kill_sub|sub|get_sync|call|return|stop|set_cat)\b'
+    - match: '{{startingWhitespace}}\b(async_sub|set_func|get_async|async_call|kill_all|kill_cat|kill_loc|kill_sub|sub|get_sync|call|return|stop|set_cat)\b'
       scope: keyword.control.thread.tickflow
 
   function_names:
-    - match: '^{{word_letterStart}}:'
+    - match: '{{startingWhitespace}}{{word_letterStart}}:'
       scope: entity.name.functions.name.tickflow
     - match: '(?<=\bcall\b)[ \t]+{{word_letterStart}}'
       scope: entity.name.functions.name.tickflow
@@ -92,28 +93,27 @@ contexts:
       scope: entity.name.functions.subs.tickflow
 
   common_functions:
-    - match: '\b(set_condvar|add_condvar|push_condvar|pop_condvar)\b'
+    - match: '{{startingWhitespace}}\b(set_condvar|add_condvar|push_condvar|pop_condvar)\b'
       scope: entity.name.functions.condvar.tickflow
-    - match: '\b(rest|setrest|getrest|rest_reset|unrest)\b'
+    - match: '{{startingWhitespace}}\b(rest|setrest|getrest|rest_reset|unrest)\b'
       scope: entity.name.functions.rest.tickflow
-    - match: '\b(set_countdown|set_countdown_condvar|get_countdown_init|get_countdown_prog|get_countdown|dec_countdown)\b'
+    - match: '{{startingWhitespace}}\b(set_countdown|set_countdown_condvar|get_countdown_init|get_countdown_prog|get_countdown|dec_countdown)\b'
       scope: entity.name.functions.countdown.tickflow
-    - match: '\b(speed|speed_relative)\b'
+    - match: '{{startingWhitespace}}\b(speed|speed_relative)\b'
       scope: entity.name.functions.speed.tickflow
-    - match: '\b(game_model|game_cellanim|game_effect|game_layout)\b'
+    - match: '{{startingWhitespace}}\b(game_model|game_cellanim|game_effect|game_layout)\b'
       scope: entity.name.functions.slots.tickflow
-    - match: '\b(set_model|remove_model|has_model)\b'
+    - match: '{{startingWhitespace}}\b(set_model|remove_model|has_model)\b'
       scope: entity.name.functions.model.tickflow
-    - match: '\b(set_cellanim|cellanim_busy|remove_cellanim)\b'
+    - match: '{{startingWhitespace}}\b(set_cellanim|cellanim_busy|remove_cellanim)\b'
       scope: entity.name.functions.cellanim.tickflow
-    - match: '\b(set_effect|effect_busy|remove_effect)\b'
+    - match: '{{startingWhitespace}}\b(set_effect|effect_busy|remove_effect)\b'
       scope: entity.name.functions.effect.tickflow
-    - match: '\b(set_layout|layout_busy|remove_layout)\b'
+    - match: '{{startingWhitespace}}\b(set_layout|layout_busy|remove_layout)\b'
       scope: entity.name.functions.layout.tickflow
-    - match: '\b(play_sfx|set_sfx|remove_sfx)\b'
+    - match: '{{startingWhitespace}}\b(play_sfx|set_sfx|remove_sfx)\b'
       scope: entity.name.functions.sfx.tickflow
-    - match: '\b(zoom|zoom_gradual|pan|pan_gradual|rotate|rotate_gradual|fade)\b'
+    - match: '{{startingWhitespace}}\b(zoom|zoom_gradual|pan|pan_gradual|rotate|rotate_gradual|fade)\b'
       scope: entity.name.functions.view.tickflow
-    - match: '\b(engine|input|star|random|debug)\b'
+    - match: '{{startingWhitespace}}\b(engine|input|star|random|debug)\b'
       scope: entity.name.functions.bleh.tickflow
-

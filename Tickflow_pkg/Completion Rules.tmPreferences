@@ -6,7 +6,7 @@
 	<key>settings</key>
 	<dict>
 		<key>cancelCompletion</key>
-		<string>^(\S+[ \t]+.*)$|0x</string>
+		<string>^(\S+[ \t]+.*)$|0x|if$</string>
 	</dict>
 </dict>
 </plist>
