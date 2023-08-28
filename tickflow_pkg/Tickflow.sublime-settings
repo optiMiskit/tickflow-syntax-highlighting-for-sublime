@@ -1,0 +1,19 @@
+// These settings override both User and Default settings for the Tickflow syntax
+{
+	"color_scheme": "TickflowDark.sublime-color-scheme",
+
+	// Uncomment the following to enable OS light/dark mode toggling, or if neither theme appears
+	// "color_scheme": "auto",
+	// "dark_color_scheme": "TickflowDark.sublime-color-scheme",
+	// "light_color_scheme": "TickflowLight.sublime-color-scheme",
+
+	"highlight_line": true,
+	"tab_completion": false,
+	"auto_complete_triggers":
+	[
+		{
+			"selector": "source.tickflow",
+			"characters": "`"
+		}
+	]
+}
